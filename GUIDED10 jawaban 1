@@ -1,0 +1,27 @@
+def hitungCariKata(filename):
+    try:
+        handle = open(filename)
+        
+        total_kata = 0
+        total_python = 0
+        
+        for line in handle:
+            words = line.split()
+
+            total_kata += len(words)
+
+            for word in words:
+                newWords = word.strip('.,!?;:()[]{}"\'')
+                if newWords.lower() == "python":
+                    total_python += 1
+        
+        handle.close()
+        
+        print("Nama File:", filename)
+        print("Jumlah kata:", total_kata)
+        print("Jumlah kata Python:", total_python)
+        
+    except:
+        print("Error.. file tidak ada!")
+
+hitungCariKata("artikel.txt")
