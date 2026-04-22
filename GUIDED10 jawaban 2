@@ -1,0 +1,15 @@
+def HitungRata(filename):
+    handle = open(filename)
+    count = 0
+    barisKe = 0
+    nilaiTotal = 0 
+    for i in handle:
+        barisKe += 1
+        if barisKe >= 4:
+            data = i.strip().split(",")
+            nilai = float(data[-1])
+            nilaiTotal += nilai
+            count += 1
+    print("Rata Rata " + str(nilaiTotal/count))
+            
+HitungRata("file1.txt")
